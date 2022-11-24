@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hello World test!!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <!--chart.jsのCDN-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+
+    <h1 class="bg-primary text-white">Chart.jsのサンプルコード</h1>
+
+    <main class="container">
+
+    
+        <h2>那覇市2021年の平均気温と平均湿度</h2>
+
+        <table class="table table-hover text-center">
+            <thead class="thead-dark">
+                <tr><th>月</th><th>平均気温(℃)</th><th>平均湿度(％)</th></tr>        
+            </thead>
+            <tbody>
+                <tr><td class="month">1</td><td class="temp">16.8</td><td class="humi">71</td></tr>
+                <tr><td class="month">2</td><td class="temp">18.5</td><td class="humi">72</td></tr>
+                <tr><td class="month">3</td><td class="temp">20.8</td><td class="humi">76</td></tr>
+                <tr><td class="month">4</td><td class="temp">21.7</td><td class="humi">73</td></tr>
+                <tr><td class="month">5</td><td class="temp">25.8</td><td class="humi">87</td></tr>
+                <tr><td class="month">6</td><td class="temp">27.1</td><td class="humi">90</td></tr>
+                <tr><td class="month">7</td><td class="temp">28.8</td><td class="humi">84</td></tr>
+                <tr><td class="month">8</td><td class="temp">28.7</td><td class="humi">83</td></tr>
+                <tr><td class="month">9</td><td class="temp">28.8</td><td class="humi">80</td></tr>
+                <tr><td class="month">10</td><td class="temp">26.0</td><td class="humi">73</td></tr>
+                <tr><td class="month">11</td><td class="temp">21.8</td><td class="humi">69</td></tr>
+                <tr><td class="month">12</td><td class="temp">18.9</td><td class="humi">67</td></tr>
+            </tbody>
+        </table>
+
+
+        <h3>折れ線グラフ(気温)だけ表示</h3>
+
+        <canvas id="graph1"></canvas>
+
+        <h3>棒グラフ(湿度)だけ表示</h3>
+
+        <canvas id="graph2"></canvas>
+
+        <h3>折れ線グラフと棒グラフを合わせて表示</h3>
+
+        <canvas id="graph3"></canvas>
+
+        <div>出典:https://www.data.jma.go.jp/obd/stats/etrn/view/monthly_s1.php?prec_no=91&block_no=47936&year=2021&month=1&day=4&view=a2</div>
+        <div>https://noauto-nolife.com/post/startup-chartjs/</div>
+        <div>https://noauto-nolife.com/post/chartjs-responsive-chart/</div>
+
+    </main>
+
+</body>
+</html>
