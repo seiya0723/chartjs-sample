@@ -9,13 +9,78 @@ window.addEventListener("load" , function (){
 
 function draw_line(){
 
+
+    //monthを取得する
+
+    let month_elems = $(".month");
+    let temp_elems  = $(".temp");
+
+    let labels      = [];
+    let datas       = [];
+
+    for ( let i=0;i<month_elems.length;i++ ){
+        //月のテキストを1つずつ取得して labels に追加する
+        labels.push( month_elems.eq(i).text() + "月" );
+    }
+    console.log(labels);
+
+
+    for ( let i=0;i<temp_elems.length;i++ ){
+        //気温のテキストを1つずつ取得して数値に直して datas に追加する
+        datas.push( Number(temp_elems.eq(i).text()) );
+    }
+    console.log(datas);
+
+
+    //作った配列をchart.jsに仕立てる
+
+    const ctx = document.getElementById("graph1").getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label:"月ごとの気温",
+                data: datas,
+
+
+                // 装飾
+                backgroundColor: 'crimson', //色名だけでなく、CSSのカラーコードも指定できる
+                borderColor: 'crimson',
+                borderWidth: 3, // 折れ線グラフは細いと値のマウスカーソルを合わせるのが難しいので、3~5ぐらいにしておく
+
+                pointStyle: "rectRot", //https://misc.0o0o.org/chartjs-doc-ja/charts/line.html
+                pointRadius: 8,
+                pointHoverRadius: 12,
+
+            }]
+        },
+        options: {
+            // 目盛の上限と下限の指定 0℃から40℃まで
+            scales: {
+                y: {
+                    min: 0,
+                    max: 40,
+                }
+            }
+        }
+    });
+
+
+
+
+    /*
     let x_elem  = $(".month");
     let y_elem  = $(".temp");
 
     let x_list  = [];
     let y_list  = [];
 
+    //jQueryのオブジェクトに対してfor of文を使った場合、JavaScriptのDOMが取得できる
     for (let x of x_elem){
+        // x.text() ← jQueryのオブジェクトではないのでこれはエラー
+        // $(x).text() ←これならOK
+
         x_list.push(x.innerText + "月");
     }
     for (let y of y_elem){
@@ -49,6 +114,7 @@ function draw_line(){
         }
 
     });
+    */
 
 
 }
