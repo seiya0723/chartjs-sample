@@ -7,6 +7,7 @@ window.addEventListener("load" , function (){
     for (let id of id_list){
         const ctx       = document.getElementById(id).getContext('2d');
 
+        //Chartのオブジェクトを idをキーにして格納する
         charts[id]      = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -29,7 +30,15 @@ window.addEventListener("load" , function (){
 
     //ボタンが押されたとき、グラフを消す。もしくはnew Chartを入れることで、新しいチャートを指定できる。
     $(".graph_button").on("click", function(){
+
+
+        // クリックされたボタンが value="graph1" であれば、charts["graph1"].destroy()
         charts[$(this).val()].destroy();
+
+        //親要素も消す
+        $("#" + $(this).val()).parent("div").css({"display":"none"});
+
+
     });
 
 

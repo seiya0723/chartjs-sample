@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hello World test!!</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
+    <script src="script.js"></script>
+
+
+
+<style>
+body{
+    margin:0;
+}
+</style>
+</head>
+<body>
+
+    <section style="width:60%;margin:auto;">
+
+        <div style="display:flex;">
+            <div style="position:relative;width:50%;">
+                <canvas id="graph1"></canvas>
+            </div>
+            <div style="position:relative;width:50%;">
+                <canvas id="graph2"></canvas>
+            </div>
+        </div>
+        <div style="display:flex;">
+            <div style="position:relative;width:50%;">
+                <canvas id="graph3"></canvas>
+            </div>
+            <div style="position:relative;width:50%;">
+                <canvas id="graph4"></canvas>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="container">
+
+        <div class="row">
+
+            <div class="col-6">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th class="month_label">月</th>
+                            <th class="cost1_label">原材料費</th>
+                            <th class="cost2_label">人件費</th>
+                            <th class="cost3_label">広告費</th>
+                            <th class="cost4_label">光熱費等</th>
+                            <th class="earn1_label">売上</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="month_value">1</td>
+                            <td class="cost1_value">1000</td>
+                            <td class="cost2_value">1000</td>
+                            <td class="cost3_value">1000</td>
+                            <td class="cost4_value">1000</td>
+                            <td class="earn1_value">10000</td>
+                        </tr>
+                        <tr>
+                            <td class="month_value">2</td>
+                            <td class="cost1_value">2000</td>
+                            <td class="cost2_value">2000</td>
+                            <td class="cost3_value">2000</td>
+                            <td class="cost4_value">2000</td>
+                            <td class="earn1_value">20000</td>
+                        </tr>
+                        <tr>
+                            <td class="month_value">3</td>
+                            <td class="cost1_value">3000</td>
+                            <td class="cost2_value">3000</td>
+                            <td class="cost3_value">3000</td>
+                            <td class="cost4_value">3000</td>
+                            <td class="earn1_value">30000</td>
+                        </tr>
+                        <tr>
+                            <td class="month_value">4</td>
+                            <td class="cost1_value">4000</td>
+                            <td class="cost2_value">4000</td>
+                            <td class="cost3_value">4000</td>
+                            <td class="cost4_value">4000</td>
+                            <td class="earn1_value">40000</td>
+                        </tr>
+                        <tr>
+                            <td class="month_value">5</td>
+                            <td class="cost1_value">5000</td>
+                            <td class="cost2_value">5000</td>
+                            <td class="cost3_value">5000</td>
+                            <td class="cost4_value">5000</td>
+                            <td class="earn1_value">50000</td>
+                        </tr>
+                        <tr>
+                            <td class="month_value">6</td>
+                            <td class="cost1_value">6000</td>
+                            <td class="cost2_value">6000</td>
+                            <td class="cost3_value">6000</td>
+                            <td class="cost4_value">6000</td>
+                            <td class="earn1_value">60000</td>
+                        </tr>
+                        <tr>
+                            <td class="month_value">7</td>
+                            <td class="cost1_value">7000</td>
+                            <td class="cost2_value">7000</td>
+                            <td class="cost3_value">7000</td>
+                            <td class="cost4_value">7000</td>
+                            <td class="earn1_value">70000</td>
+                        </tr>
+                        <tr>
+                            <td class="month_value">8</td>
+                            <td class="cost1_value">8000</td>
+                            <td class="cost2_value">8000</td>
+                            <td class="cost3_value">8000</td>
+                            <td class="cost4_value">8000</td>
+                            <td class="earn1_value">80000</td>
+                        </tr>
+                        <tr>
+                            <td class="month_value">9</td>
+                            <td class="cost1_value">9000</td>
+                            <td class="cost2_value">9000</td>
+                            <td class="cost3_value">9000</td>
+                            <td class="cost4_value">9000</td>
+                            <td class="earn1_value">90000</td>
+                        </tr>
+                        <tr>
+                            <td class="month_value">10</td>
+                            <td class="cost1_value">10000</td>
+                            <td class="cost2_value">10000</td>
+                            <td class="cost3_value">10000</td>
+                            <td class="cost4_value">10000</td>
+                            <td class="earn1_value">100000</td>
+                        </tr>
+                        <tr>
+                            <td class="month_value">11</td>
+                            <td class="cost1_value">11000</td>
+                            <td class="cost2_value">11000</td>
+                            <td class="cost3_value">11000</td>
+                            <td class="cost4_value">11000</td>
+                            <td class="earn1_value">110000</td>
+                        </tr>
+                        <tr>
+                            <td class="month_value">12</td>
+                            <td class="cost1_value">12000</td>
+                            <td class="cost2_value">12000</td>
+                            <td class="cost3_value">12000</td>
+                            <td class="cost4_value">12000</td>
+                            <td class="earn1_value">120000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-6">
+
+                <h2>グラフ1</h2>
+                <form id="graph1_form">
+
+                    <label><input type="checkbox" class="cost1">:原材料費</label>
+                    <label><input type="checkbox" class="cost2">:人件費</label>
+                    <label><input type="checkbox" class="cost3">:広告費</label>
+                    <label><input type="checkbox" class="cost4">:光熱費等</label>
+                    <label><input type="checkbox" class="earn1">:原材料費</label>
+
+                    <select class="type">
+                        <option value="bar">棒グラフ</option>
+                        <option value="line">折れ線グラフ</option>
+                    </select>
+
+                    <button class="graph_regene" type="button" value="graph1">グラフ1をリロード</button>
+
+                    <label><input class="graph_chk" type="checkbox" value="graph1">グラフ1を消す</label>
+
+                    <button class="graph_button" type="button" value="graph1">グラフ1を消す</button>
+
+                </form>
+                <h2>グラフ2</h2>
+                <form>
+
+                    <label><input type="checkbox" class="cost1">:原材料費</label>
+                    <label><input type="checkbox" class="cost2">:人件費</label>
+                    <label><input type="checkbox" class="cost3">:広告費</label>
+                    <label><input type="checkbox" class="cost4">:光熱費等</label>
+                    <label><input type="checkbox" class="earn1">:原材料費</label>
+                    <select class="type">
+                        <option value="bar">棒グラフ</option>
+                        <option value="line">折れ線グラフ</option>
+                    </select>
+
+                    <button class="graph_regene" type="button" value="graph2">グラフ2をリロード</button>
+
+                    <label><input class="graph_chk" type="checkbox" value="graph2">グラフ2を消す</label>
+
+
+                    <button class="graph_button" type="button" value="graph2">グラフ2を消す</button>
+
+                </form>
+                <h2>グラフ3</h2>
+                <form>
+
+                    <label><input type="checkbox" class="cost1">:原材料費</label>
+                    <label><input type="checkbox" class="cost2">:人件費</label>
+                    <label><input type="checkbox" class="cost3">:広告費</label>
+                    <label><input type="checkbox" class="cost4">:光熱費等</label>
+                    <label><input type="checkbox" class="earn1">:原材料費</label>
+                    <select class="type">
+                        <option value="bar">棒グラフ</option>
+                        <option value="line">折れ線グラフ</option>
+                    </select>
+
+                    <button class="graph_regene" type="button" value="graph3">グラフ3をリロード</button>
+
+                    <label><input class="graph_chk" type="checkbox" value="graph3">グラフ3を消す</label>
+
+                    <button class="graph_button" type="button" value="graph3">グラフ3を消す</button>
+
+                </form>
+                <h2>グラフ4</h2>
+                <form>
+
+                    <label><input type="checkbox" class="cost1">:原材料費</label>
+                    <label><input type="checkbox" class="cost2">:人件費</label>
+                    <label><input type="checkbox" class="cost3">:広告費</label>
+                    <label><input type="checkbox" class="cost4">:光熱費等</label>
+                    <label><input type="checkbox" class="earn1">:原材料費</label>
+                    <select class="type">
+                        <option value="bar">棒グラフ</option>
+                        <option value="line">折れ線グラフ</option>
+                    </select>
+
+                    <button class="graph_regene" type="button" value="graph4">グラフ4をリロード</button>
+
+                    <label><input class="graph_chk" type="checkbox" value="graph4">グラフ4を消す</label>
+
+                    <button class="graph_button" type="button" value="graph4">グラフ4を消す</button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+</body>
+</html>
+

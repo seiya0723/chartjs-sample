@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hello World test!!</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+
+<style>
+canvas{
+    width:300px;
+    height:300px;
+}
+
+</style>
+
+
+</head>
+<body>
+
+    
+
+    
+    <!--ここにグラフが表示される-->
+    <!-- <canvas id="graph" style="width:300px;height:300px;"></canvas> -->
+    
+
+    <!--
+    <div>
+        <div style="position:relative;width:500px;height:500px;">
+            <canvas id="graph"></canvas>
+        </div>
+    </div>
+    -->
+
+    <!--chart.jsではグラフの縦横比は内部で決まっているので、できればwidthだけ指定する方がよい。-->
+    <div>
+        <div style="position:relative;width:50%;">
+            <canvas id="graph"></canvas>
+        </div>
+    </div>
+
+    
+    <!--必ず1行で表示させる。-->
+    <div style="display:flex;"> 
+        <div style="width:50%;border:solid orange 2px;">1</div>
+        <div style="width:50%;border:solid orange 2px;">2</div>
+    </div>
+
+    <div style="display:flex;"> 
+        <div style="width:50%;border:solid orange 2px;">3</div>
+        <div style="width:50%;border:solid orange 2px;">4</div>
+    </div>
+
+
+    <!--子要素の数に応じて、折り返す。-->
+    <div style="display:flex;flex-wrap:wrap;"> 
+        <div style="width:50%;"><div style="border:solid 2px orange;">1</div></div>
+        <div style="width:50%;"><div style="border:solid 2px orange;">2</div></div>
+        <div style="width:50%;"><div style="border:solid 2px orange;">3</div></div>
+        <div style="width:50%;"><div style="border:solid 2px orange;">4</div></div>
+    </div>
+
+
+
+</body>
+</html>
+

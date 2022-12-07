@@ -161,6 +161,8 @@ function draw_bar(){
 }
 function draw_bar_line(){
 
+
+    // データ取得 xは1月~12月 y_elem_1は湿度、y_elem_2は気温
     let x_elem      = $(".month");
     let y_elem_1    = $(".humi");
     let y_elem_2    = $(".temp");
@@ -190,18 +192,35 @@ function draw_bar_line(){
     //このchart.js日本語ドキュメントの書き方も古いバージョンなので参考にしないように
     //https://misc.0o0o.org/chartjs-doc-ja/axes/cartesian/
 
-    const ctx = document.getElementById("graph3").getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'line',
+    const ctx       = document.getElementById("graph3").getContext('2d');
+    const myChart   = new Chart(ctx, {
+        type: 'line', //←デフォルトのグラフ
         data: {
             labels: x_list,
             datasets: [
+
+                //datasetsに複数のオブジェクトを入れることで複数のデータを入れる
+                // 先に入れたほうが前面に、後に入れたほうが背面に表示される。
+                // 複合にできるのはbarとlineの2つだけ
                 {
                     label:"月ごとの気温",
                     data: y_list_2,
 
                     backgroundColor: 'crimson',
                     borderColor: 'crimson',
+                    borderWidth: 3,
+                    pointStyle: "rectRot",
+                    pointRadius: 8,
+                    pointHoverRadius: 12,
+
+                    yAxisID: 'y_left'
+                },
+                {
+                    label:"月ごとの気温",
+                    data: [10,11,12,13,15,12,14,15,17,17,11,20],
+
+                    backgroundColor: 'forestgreen',
+                    borderColor: 'forestgreen',
                     borderWidth: 3,
                     pointStyle: "rectRot",
                     pointRadius: 8,
@@ -225,17 +244,14 @@ function draw_bar_line(){
             scales: {
                 "y_left": {
                     position: "left",
-
                     min: -10,
                     max: 40,
-
                     ticks: {
                         stepSize: 5,
                     },
                     title: {
                         display:true,
                         text: "気温(℃)",
-
                     },
                 },
                 "y_right": {
@@ -249,7 +265,6 @@ function draw_bar_line(){
                         display:true,
                         text: "湿度(％)",
                     },
-
                 }
             }
         }
