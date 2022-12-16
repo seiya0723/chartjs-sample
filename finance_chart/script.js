@@ -5,7 +5,16 @@
 
 */
 const ID_LIST   = [ "graph1","graph2","graph3","graph4" ];
+
+// idに対応するChartオブジェクト(constは定数ではあるが、オブジェクト内の要素の代入や書き換えは可能)
 const CHARTS    = {};
+
+//constのオブジェクトは代入はエラー
+//CHARTS = {"name":"taro"}
+
+//中の要素の書き換え、追加等はOK
+//CHARTS["name"] = "taro"
+
 
 window.addEventListener("load" , function (){
 
@@ -45,11 +54,21 @@ window.addEventListener("load" , function (){
 
     $(".graph_chk").on("change",function(){ 
 
+        //display:none;
         if ( $(this).is(":checked") ){
             $("#" + $(this).val()).parent("div").css({"display":"none"});
         }
         else{
             $("#" + $(this).val()).parent("div").css({"display":""});
+        }
+
+        //destroyと再生成
+        if ( $(this).is(":checked") ){
+            CHARTS[$(this).val()].destroy();
+        }
+        else{
+            //TODO:再生成の関数を実行する
+            //graph_regene($(this).parent("label"));
         }
 
     });
@@ -61,6 +80,7 @@ window.addEventListener("load" , function (){
 
 function graph_regene(button){
 
+    //siblingsは兄弟要素の指定 各チェックボックスのチェック状況をtrueもしくはfalseで返す
     let cost1   =  $(button).siblings("label").children(".cost1").is(":checked") ;
     let cost2   =  $(button).siblings("label").children(".cost2").is(":checked") ;
     let cost3   =  $(button).siblings("label").children(".cost3").is(":checked") ;
@@ -93,11 +113,22 @@ function graph_regene(button){
     console.log($(button).val());
 
     //グラフのタイプを取得
-    let type    = $(button).siblings("select").val();
+    //let type    = $(button).siblings("select").val();
+    let type    = $(button).siblings(".type").val();
 
     const ctx   = document.getElementById($(button).val()).getContext('2d');
 
+
+    //TODO:最初に描画しない場合、1回目の描画時、ここで判定しdestroyをしない方法もある。    
+
+    /*
+    if (CHARTS[$(button.val())が存在するか？]) {
+        CHARTS[$(button).val()].destroy();
+    }
+        */
     CHARTS[$(button).val()].destroy();
+
+
     //Chartのオブジェクトを idをキーにして格納する
     CHARTS[$(button).val()] = new Chart(ctx, {
         type: type,

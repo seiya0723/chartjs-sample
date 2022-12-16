@@ -1,0 +1,34 @@
+{% extends "common/l_sidebar.html" %}
+
+
+
+<!--追加でCSSを読み込ませる。今回はBootstrap-->
+{% block extra_head %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% endblock %}
+
+{% block page_title %}簡易掲示板{% endblock %}
+
+{% block header_link %}{% url 'portfolio:index' %}{% endblock %}
+{% block header_title %}簡易掲示板{% endblock %}
+
+<!--↓これはヘッダーの右側に何かを表示させたい時に使う。例えばログインのボタンとか-->
+{% block header_right_content %}{% endblock %}
+
+<!--↓これは左サイドバーの中身に何かを表示させたい時に使う。例えばサイト内のリンクとか-->
+{% block sidebar_content %}{% endblock %}
+
+{% block main %}
+<main class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <textarea class="form-control" name="comment"></textarea>
+        <input type="submit" value="送信">
+    </form>
+
+</main>
+{% endblock %}
+
+
+
+
